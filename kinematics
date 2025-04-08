@@ -1,0 +1,86 @@
+def kinematics():
+  accel = 0
+  time = 0
+  speed1 = speed2 = 0
+  distance = 0
+  accelDone = timeDone = Speed1Done = Speed2Done = distanceDone = False
+
+  for i in range(3):
+    value = input("Enter the value of any variables you have: ")
+    loop = True
+    while loop:
+      loop = False
+      choice = 0
+      choice = int(input("Select the variable you enter (1 be acceleration; 2 be time; 3 be speed1; 4 be speed2; 5 be distance): "))
+      if choice == 1:
+          if accelDone: 
+              print("Repetitive input! Try again.")
+              loop = True
+              continue
+          accel = value
+          accelDone = True
+      elif choice == 2:
+          if timeDone: 
+              print("Repetitive input! Try again.")
+              loop = True
+              continue
+          time = value
+          timeDone = True
+      elif choice == 3:
+          if Speed1Done:
+              print("Repetitive input! Try again.") 
+              loop = True
+              continue
+          speed1 = value
+          speed1Done = True
+      elif choice == 4:
+          if Speed2Done:
+              print("Repetitive input! Try again.") 
+              loop = True
+              continue
+          speed2 = value
+          speed2Done = True
+      elif choice == 5:
+          if distanceDone: 
+              print("Repetitive input! Try again.")
+              loop = True
+              continue
+          distance = value
+          distanceDone = True
+      else: 
+          print("Invalid! Please input again")
+
+  print(f"accel {accel}, time {time}, speed1 {speed1}, speed2 {speed2}, distance {distance} ")
+
+  if !distanceDone:
+    value1 = (speed1 + speed2) * time / 2
+    value2 = speed1 * time + accel / 2 * time ** 2
+    value3 = speed2 * time - accel / 2 * time ** 2
+    value4 = (speed2 ** 2 - speed1 ** 2) / (2 * accel)
+    values = [value1, value2, value3, value4]
+    for i in values:
+        if values[i] > distance:
+          distance = values[i]
+
+  if !timeDone:
+    value1 = 2 * distance / (speed1 + speed2)
+    value2 = (speed2 - speed1) / time
+    value3 = -speed1 + (speed1 ** 2 - 2 * accel * distance) ** 0.5 / accel
+    value4 = speed2 + (speed2 ** 2 - 2 * accel * distance) ** 0.5 / accel
+    values = [value1, value2, value3, value4]
+    for i in values:
+        if values[i] > distance:
+          distance = values[i]
+
+  if !speed1Done:
+    value1 = 2 * distance / time - speed2
+    value2 = speed1 - accel * time 
+
+    values = [value1, value2]
+    for i in values:
+        if values[i] > distance:
+          distance = values[i]
+
+
+kinematics()
+        
